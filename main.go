@@ -13,7 +13,7 @@ func main() {
 
 			json.NewEncoder(w).Encode(map[string]interface{}{
 				"hello": "world",
-				"v":     2,
+				"v":     3,
 			})
 
 		}),
