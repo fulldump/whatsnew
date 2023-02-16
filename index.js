@@ -11,17 +11,18 @@ const app = new App({
 });
 
 const botId = 'U04Q4NL8E0Z';
+const botIdDev = 'U04PXGZC551';
 const conversations = new Map();
 const membersPerChannel = new Map();
 let api;
 
 app.event('app_mention', ({event, say, payload}) => {
     if (event.user !== botId) {
-        const text = event.text.replace(`<@${botId}>`, '').trim();
+        const text = event.text.replace(`<@${botId}>`, '').replace(`<@${botIdDev}>`, '').trim();
 
         if (text.length) {
             chatGPT(text, event.channel).then(answer => {
-                say({text: answer.text, thread_ts: event.thread_ts || event.ts, reply_broadcast: true});
+                say({text:  `<@${event.user}>: ${answer.text}`});
             });
         } else {
             say(`Que coño quieres <@${event.user}>?!`);
