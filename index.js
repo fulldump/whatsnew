@@ -45,7 +45,9 @@ app.command('/resumen', async ({command, ack, respond, payload}) => {
 // Start your app
 (async () => {
     await app.start(process.env.PORT || 3000);
-    await app.client.chat.postMessage({channel: 'C04PRHW329Y', text: 'Bot started!'})
+    if (!process.env.SLACK_SIGNING_SECRET.startsWith('6c4')) {
+        await app.client.chat.postMessage({channel: 'C04PRHW329Y', text: 'Bot started!'})
+    }
     console.log('Bot is running!');
 })();
 
@@ -60,7 +62,8 @@ async function chatGPT(msg, channel, useContext = true) {
 
         api = new ChatGPTAPI({
             apiKey: OPENAI_API_KEY,
-            // debug: true
+            // debug: true,
+            completionParams: {temperature: 0}
         });
     }
 
@@ -79,7 +82,7 @@ async function chatGPT(msg, channel, useContext = true) {
 
     const response = await api.sendMessage(msg, {
         ...conversationParams,
-        promptPrefix
+        // promptPrefix
     });
 
     if (useContext) {
