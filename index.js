@@ -17,15 +17,20 @@ const botIdDev = 'U04PXGZC551';
 const conversations = new Map();
 const membersPerChannel = new Map();
 let api;
+let ACCESS_TOKEN;
 
 app.event('app_mention', ({event, say, payload}) => {
     if (event.user !== botId) {
         const text = event.text.replace(`<@${botId}>`, '').replace(`<@${botIdDev}>`, '').trim();
 
         if (text.length) {
-            chatGPT(text, event.channel).then(answer => {
-                say({text:  `<@${event.user}>: ${answer.text}`});
-            });
+            chatGPT(text, event.channel)
+                .then(answer => {
+                    say({text: `<@${event.user}>: ${answer.text}`});
+                })
+                .catch(error => {
+                    say({text: `<@${event.user}> me has roto! -> ${error.message}`})
+                });
         } else {
             say(`Que coño quieres <@${event.user}>?!`);
         }
@@ -54,9 +59,11 @@ app.command('/resumen', async ({command, ack, respond, payload}) => {
 })();
 
 async function chatGPT(msg, channel, useContext = true) {
-    const Authenticator = await import('openai-authenticator')
-    const auth = new Authenticator.default();
-    const ACCESS_TOKEN = await auth.login(CHAT_GPT_USER, CHAT_GPT_PASS);
+    if (!ACCESS_TOKEN) {
+        const Authenticator = await import('openai-authenticator')
+        const auth = new Authenticator.default();
+        ACCESS_TOKEN = await auth.login(CHAT_GPT_USER, CHAT_GPT_PASS);
+    }
 
     let members = membersPerChannel.get(channel);
     if (!members) {
