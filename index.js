@@ -4,6 +4,8 @@ const {App} = require('@slack/bolt');
 const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN
 const SLACK_SIGNING_SECRET = process.env.SLACK_SIGNING_SECRET
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+const CHAT_GPT_USER = process.env.CHAT_GPT_USER
+const CHAT_GPT_PASS = process.env.CHAT_GPT_PASS
 
 const app = new App({
     token: SLACK_BOT_TOKEN,
@@ -52,16 +54,21 @@ app.command('/resumen', async ({command, ack, respond, payload}) => {
 })();
 
 async function chatGPT(msg, channel, useContext = true) {
+    const Authenticator = await import('openai-authenticator')
+    const auth = new Authenticator.default();
+    const ACCESS_TOKEN = await auth.login(CHAT_GPT_USER, CHAT_GPT_PASS);
+
     let members = membersPerChannel.get(channel);
     if (!members) {
         members = (await app.client.conversations.members({channel})).members.map(m => `<@${m}>`).join(', ');
     }
 
     if (!api) {
-        const {ChatGPTAPI} = await import('chatgpt');
+        const {ChatGPTUnofficialProxyAPI} = await import('chatgpt');
 
-        api = new ChatGPTAPI({
-            apiKey: OPENAI_API_KEY,
+        api = new ChatGPTUnofficialProxyAPI({
+            // apiKey: OPENAI_API_KEY,
+            accessToken: ACCESS_TOKEN.accessToken,
             // debug: true,
             completionParams: {temperature: 0}
         });
