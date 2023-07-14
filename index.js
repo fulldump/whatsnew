@@ -78,7 +78,8 @@ async function chatGPT(msg, channel, useContext = true) {
             // apiKey: OPENAI_API_KEY,
             accessToken: ACCESS_TOKEN.accessToken,
             // debug: true,
-            completionParams: {temperature: 0}
+            completionParams: {temperature: 0},
+            apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
         });
     }
 
