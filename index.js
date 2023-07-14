@@ -60,9 +60,10 @@ app.command('/resumen', async ({command, ack, respond, payload}) => {
 
 async function chatGPT(msg, channel, useContext = true) {
     if (!ACCESS_TOKEN) {
-        const Authenticator = await import('openai-authenticator')
-        const auth = new Authenticator.default();
-        ACCESS_TOKEN = await auth.login(CHAT_GPT_USER, CHAT_GPT_PASS);
+        // const Authenticator = await import('openai-authenticator')
+        // const auth = new Authenticator.default();
+        // ACCESS_TOKEN = await auth.login(CHAT_GPT_USER, CHAT_GPT_PASS);
+        ACCESS_TOKEN = require('./at.json');
     }
 
     let members = membersPerChannel.get(channel);

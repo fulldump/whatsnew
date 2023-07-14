@@ -1,0 +1,17 @@
+{
+  "user": {
+    "id": "user-ji8zlFDw6372N9i3DKEGOpaJ",
+    "name": "botchatgpt16@gmail.com",
+    "email": "botchatgpt16@gmail.com",
+    "image": "https://s.gravatar.com/avatar/7c1cc68b031341edd74e16a0e30c19ff?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fbo.png",
+    "picture": "https://s.gravatar.com/avatar/7c1cc68b031341edd74e16a0e30c19ff?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fbo.png",
+    "idp": "auth0",
+    "iat": 1689340738,
+    "mfa": false,
+    "groups": [],
+    "intercom_hash": "456e577fbd2981878ef7f28002d2b7e66a55c8ce4554ff8cf25cc754cf414dea"
+  },
+  "expires": "2023-08-13T13:20:08.518Z",
+  "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1UaEVOVUpHTkVNMVFURTRNMEZCTWpkQ05UZzVNRFUxUlRVd1FVSkRNRU13UmtGRVFrRXpSZyJ9.eyJodHRwczovL2FwaS5vcGVuYWkuY29tL3Byb2ZpbGUiOnsiZW1haWwiOiJib3RjaGF0Z3B0MTZAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJodHRwczovL2FwaS5vcGVuYWkuY29tL2F1dGgiOnsidXNlcl9pZCI6InVzZXItamk4emxGRHc2MzcyTjlpM0RLRUdPcGFKIn0sImlzcyI6Imh0dHBzOi8vYXV0aDAub3BlbmFpLmNvbS8iLCJzdWIiOiJhdXRoMHw2NDEzMzk2ODg5Y2U5NWQ3YzYxYTQxNzUiLCJhdWQiOlsiaHR0cHM6Ly9hcGkub3BlbmFpLmNvbS92MSIsImh0dHBzOi8vb3BlbmFpLm9wZW5haS5hdXRoMGFwcC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjg5MzQwNzM4LCJleHAiOjE2OTA1NTAzMzgsImF6cCI6IlRkSkljYmUxNldvVEh0Tjk1bnl5d2g1RTR5T282SXRHIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBtb2RlbC5yZWFkIG1vZGVsLnJlcXVlc3Qgb3JnYW5pemF0aW9uLnJlYWQgb3JnYW5pemF0aW9uLndyaXRlIn0.dlpF6P14EyurA1QZoovyJQ5yoaf4nQxBn9U1hyenBWFc20m89w8_dKYZISrF6erix5c7ZUeVh-WNbztSEUZy4ly3nUDHgGhmKHNWMqHLmFUTrRFvcdMrN-dR4XgE8QhuKq3HwFw2Bq3ZoM1NYZ3THk7MZcyk2pJYP5waOA92CQcTWMBfH9LS0zOFxUqA_zrqw0uOS3XavyLbxG2Tmdjx75cm5ZJ6Pfg0DliMYhwd8tYX-pMWVOBBkaHXxaCcKm5Y-RbWCvQ-2-8E_Bu1ShEsVitA4ADMDxk9MrDY1FlmWg-l7SMXQSorNgvS_K-yZ6Wj6JEOXi1NN8i0wsjGvO7qKA",
+  "authProvider": "auth0"
+}
