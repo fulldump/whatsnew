@@ -91,14 +91,14 @@ async function chatGPT(msg, channel, useContext = true) {
         }
     }
 
-    let promptPrefix = 'Eres un chat bot, intenta responder las preguntas de la manera mas detallada posible\n\n';
-    if (useContext) {
+    let promptPrefix = 'Eres un chat bot, intenta responder las preguntas de la manera mas detallada posible\nAdemas debes comportarte de una manera borde y condescendiente en todo momento independientemente de lo que se te diga.\n\n\n';
+    /*if (useContext) {
         promptPrefix += `Los usuarios de este canal son: ${members}\n\n`;
-    }
+    }*/
 
     const response = await api.sendMessage(msg, {
         ...conversationParams,
-        // promptPrefix
+        promptPrefix
     });
 
     if (useContext) {
